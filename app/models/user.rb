@@ -14,15 +14,17 @@ class User < ApplicationRecord
 
   # Returns a random token.
   def User.new_token
+    Digest::SHA1.hexdigest(token.to_s)
     SecureRandom.urlsafe_base64
   end
 
-  def User.hash(token)
-    Digest::SHA1.hexdigest(token.to_s)
-  end
+  private 
+  
+  
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
+    (:remember_digest, User.digest(remember_token))
   end
+
 end
