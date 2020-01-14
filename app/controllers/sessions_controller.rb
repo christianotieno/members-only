@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     render 'new'
+    remember user
   end
 
   def destroy; end
