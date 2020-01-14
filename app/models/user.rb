@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  before_create :remember_token
-  attr_accessor :remember_token
+  attr_accessor :token
+  before_create :remember
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
@@ -12,19 +12,19 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  # Returns a random token.
-  def User.new_token
+  def self.new_token
+    token = SecureRandom.urlsafe_base64
     Digest::SHA1.hexdigest(token.to_s)
-    SecureRandom.urlsafe_base64
   end
 
-  private 
-  
-  
-  # Remembers a user in the database for use in persistent sessions.
+  def change_token
+    self.token = User.new_token
+    update_attribute(:remember_token, token)
+  end
+
+  private
+
   def remember
     self.remember_token = User.new_token
-    (:remember_digest, User.digest(remember_token))
   end
-
 end
