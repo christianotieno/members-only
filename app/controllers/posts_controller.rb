@@ -7,9 +7,20 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create; end
+  def create
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    if @post.valid?
+      @post.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
 
-  def index; end
+  def index
+    @posts = Post.all
+  end
 
   private
 
@@ -19,4 +30,9 @@ class PostsController < ApplicationController
     flash.now[:danger] = 'Please log in to access the requested page'
     redirect_to login_path
   end
+
+  def post_params
+    params.require(:post).permit(:title, :content, :user_id)
+  end
 end
+
