@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.valid?
       @post.save
+      flash[:error] = "Post creation not successful, include a title/content."
       redirect_to root_path
     else
       render 'new'
@@ -35,4 +36,3 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :content, :user_id)
   end
 end
-
