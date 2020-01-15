@@ -7,6 +7,11 @@ In this project, we are building an exclusive clubhouse where members can write 
 All source code is available jointly under the MIT License and the Beerware License. See
 [LICENSE.md](LICENSE.md) for details.
 
+## Authors
+
+- Tommy Monatana
+- Christian Otieno
+
 ## Getting started
 
 To get started with the app, clone the repo and then install the needed gems:
@@ -24,3 +29,7 @@ Finally, run the test suite to verify that everything is working correctly:
 If the test suite passes, you'll be ready to run the app in a local server:
 
 ```$ rails server```
+
+### Project specifications
+
+You can find project specifications [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication)

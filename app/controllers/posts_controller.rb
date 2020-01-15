@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.valid?
       @post.save
-      flash.now[:success] = 'Post created successfully.'
+      flash.now[:notice] = 'Post created successfully.'
       redirect_to root_path
     else
       flash.now[:error] = 'Post creation not successful, include a title/content.'
