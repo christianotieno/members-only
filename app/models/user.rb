@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
+  def authenticated?(remember_token)
+    BCrypt::Password.new(remember_token).is_password?(remember_token)
+  end
+
   def remember
     self.remember_digest = Digest::SHA1.hexdigest(SecureRandom.urlsafe_base64)
   end

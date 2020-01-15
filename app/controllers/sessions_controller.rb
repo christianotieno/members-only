@@ -1,24 +1,23 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  def new
-    render 'new'
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
       log_in user
-      flash.now[:success] = 'Success you are now logged in'
+      flash.now[:success] = 'Successfully logged in'
       redirect_to :root
     else
-      flash.now[:danger] = 'Error Wrong combination of email and password'
+      flash.now[:danger] = 'Error! Wrong combination of email and password'
       render 'new'
     end
   end
 
   def destroy
-    sign_out if logged_in?
-    redirect_to :root
+    log_out if logged_in?
+    flash[:success] = 'Successfully logged out'
+    redirect_to root_path
   end
 end
