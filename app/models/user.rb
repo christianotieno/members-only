@@ -18,4 +18,5 @@ class User < ApplicationRecord
   def remember
     self.remember_digest = Digest::SHA1.hexdigest(SecureRandom.urlsafe_base64)
   end
+  has_many :posts
 end

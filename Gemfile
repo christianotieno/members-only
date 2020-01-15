@@ -46,6 +46,9 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop'
 
+# Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack.
+gem 'binding_of_caller', '~> 0.8.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
