@@ -1,2 +1,17 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>New Article</h1>
+
+<%= form_for(@post, url: posts_path(@post), html: { method: :post }) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+ 
+  <p>
+    <%= f.submit, "Post Article" class: "btn btn-primary"%>
+  </p>
+<% end %>
