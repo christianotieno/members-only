@@ -1,20 +1,36 @@
 
-<h1>Posts</h1>
+<h1>Welcome to Members Only Club's Posts Updates</h1>
 
 <table>
   <tr>
     <th>Title</th>
+    <th></th>
+    <th></th>
     <th>Content</th>
+    <th></th>
+    <th></th>
     <th>Author</th>
   </tr>
  
   <% @posts.each do |post| %>
     <tr>
       <td><%= post.title %></td>
+      <td></td>
+      <td></td>
       <td><%= post.content %></td>
+      <td></td>
+      <td></td>
       <% if logged_in? %> 
       <td><%= post.user.name %></td>
       <% end %>
     </tr>
   <% end %>
 </table>
+
+<% if logged_in? %>
+  <%= link_to "Sign out", log_out %>
+  <br>
+  <%= link_to "Create a Post", new_post_url %>
+<% else %>
+  <%= link_to "Sign in", login_path %>
+<% end %>

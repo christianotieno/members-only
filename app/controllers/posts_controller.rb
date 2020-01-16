@@ -10,10 +10,8 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.valid?
       @post.save
-      flash.now[:notice] = 'Post created successfully.'
-      redirect_to root_path
+      redirect_to new_post_path
     else
-      flash.now[:error] = 'Post creation not successful, include a title/content.'
       render 'new'
     end
   end
@@ -25,10 +23,7 @@ class PostsController < ApplicationController
   private
 
   def logged_in_user
-    return if logged_in?
-
-    flash.now[:danger] = 'Please log in to access the requested page'
-    redirect_to login_path
+    redirect_to login_path unless logged_in?
   end
 
   def post_params
