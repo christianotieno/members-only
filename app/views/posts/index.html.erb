@@ -28,7 +28,7 @@
 </table>
 
 <% if logged_in? %>
-  <%= link_to "Sign out", log_out %>
+  <%= link_to "Sign out", logout_path %>
   <br>
   <%= link_to "Create a Post", new_post_url %>
 <% else %>

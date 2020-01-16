@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.valid?
       @post.save
-      redirect_to new_post_path
+      redirect_to root_url
     else
       render 'new'
     end
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   private
 
   def logged_in_user
-    redirect_to login_path unless logged_in?
+    redirect_to root_url unless logged_in?
   end
 
   def post_params
