@@ -6,7 +6,6 @@ module SessionsHelper
     current_user
   end
 
-
   def current_user
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
@@ -23,7 +22,6 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
-  
   def logged_in?
     !current_user.nil?
   end
