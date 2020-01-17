@@ -1,22 +1,35 @@
-# README
+# Ruby on Rails Members Only Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this project, we are building an exclusive clubhouse where members can write embarrassing posts about non-members. Inside the clubhouse, members can see who the author of a post is but, outside, they can only see the story and wonder who wrote it.
 
-Things you may want to cover:
+## License
 
-* Ruby version
+All source code is available jointly under the MIT License and the Beerware License. See
+[LICENSE.md](LICENSE.md) for details.
 
-* System dependencies
+## Authors
 
-* Configuration
+- Tommy Monatana
+- Christian Otieno
 
-* Database creation
+## Getting started
 
-* Database initialization
+To get started with the app, clone the repo and then install the needed gems:
 
-* How to run the test suite
+```$ bundle install --without production```
 
-* Services (job queues, cache servers, search engines, etc.)
+Next, migrate the database:
 
-* Deployment instructions
+```$ rails db:migrate```
+
+Finally, run the test suite to verify that everything is working correctly:
+
+```$ rails test```
+
+If the test suite passes, you'll be ready to run the app in a local server:
+
+```$ rails server```
+
+### Project specifications
+
+You can find project specifications [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication)
