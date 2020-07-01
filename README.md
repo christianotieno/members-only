@@ -7,10 +7,18 @@ In this project, we are building an exclusive clubhouse where members can write 
 All source code is available jointly under the MIT License and the Beerware License. See
 [LICENSE.md](LICENSE.md) for details.
 
-## Authors
+## Authors's Social Links
 
-- Tommy Monatana
-- Christian Otieno
+👤 **Tommy Montana**
+
+- Github: [@TommyM0ntana](https://github.com/TommyM0ntana)
+- Twitter: [@tommymo13761893](https://twitter.com/tommymo13761893)
+
+👤 **Christian Otieno**
+
+- Github: [@christianotieno](https://github.com/christianotieno)
+- Twitter: [@iamchisotieno](https://twitter.com/iamchrisotieno)
+- Linkedin: [ChristianOtieno](https://www.linkedin.com/in/christianotieno/)
 
 ## Getting started
 
